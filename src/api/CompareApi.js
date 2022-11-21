@@ -1467,7 +1467,7 @@ class CompareApi {
 		var targetValueType = typeof targetValue;
 
 		if (sourceValueType != targetValueType) return false;
-		else if (sourceValue instanceof Date) return sourceValue.getTime() !== targetValue.getTime();
+		else if (sourceValue instanceof Date) return  targetValue === null || sourceValue.getTime() !== targetValue.getTime();
 		else if (sourceValue instanceof Object) return !deepEqual(sourceValue, targetValue);
 		else return sourceValue !== targetValue;
 	}
